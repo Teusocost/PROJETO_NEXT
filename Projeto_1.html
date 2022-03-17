@@ -8,20 +8,25 @@
             branco:#F2F2F2
         -->
         <title> Conta Digital Grátis - Next </title> <!--Título da aba-->
-        <meta http-equiv="refresh" content="1"> <!--atualiza browser a casa 1s-->
+        <meta http-equiv="refresh" content="3"> <!--atualiza browser a casa 1s-->
         <meta charset="utf-8">
-        <meta name = "viewport" content="width=device-width, initial-scale=1,
-        shrink-to-fit=no">
+        <meta name = "viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" type=text/css>
         <!--Fonte menus-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500&display=swap" rel="stylesheet">
         <!--Fonte Meio tela-->
-        
-        
+        <meta name="viewport" content="width=device-width, initial-scale=1"> <!--Responsável por deixar responsível-->
 
+
+
+        <!--CSS-->
         <style type="text/css"> /*--Construção do CSS-->*/
+            * {
+                font-family: 'Montserrat', sans-serif;
+            }
+
             body, h1, h2, h3, p, ul{
                 padding: 0px;
                 margin: 0px;
@@ -30,21 +35,35 @@
                 width: 100%;
                 height: 95px;
                 background-color: #ffffff;
-                padding: 0px 0px 0px 119px;
+                padding: 0px 20px;
                 position: fixed;
+                top: 0px;
+            }
+            .menu-container {
+                display: flex;
+                max-width: 1200px;
+                margin: auto;
+                align-items: center;
+                justify-content: space-between;
+                height: 95px;
+            }
+            .logos {
+                display: flex;
+                align-items: center;
             }
             .logo{
                 display: block;
-                float: left;
-                margin-top: 30px;
+                /* float: left; */
+                /* margin-top: 30px; */
             }
             .menu-next{
-                max-width: 100%;
-                float: left;
+                /* max-width: 100%; */
+                /* float: left; */
             }
             .menu-next li{
-                margin-top: 45px;
+                /* margin-top: 45px; */
                 display: inline-block;
+                font-size: 14px;
                 
             }
             .menu-next a{
@@ -53,79 +72,146 @@
                 color: black;
                 font-size: 12px;
                 margin-left: 33px;
-                font-family: 'Montserrat', sans-serif;
-                font-weight: bold;
+                font-weight: 500;
             }
             .login {
                 background-color: #FD6699;
                 display:inline-block;
                 font-size: 11px;
                 color: white;
-                margin-top: 30px;
-                margin-left: 163px;
+                /* margin-top: 30px; */
+                /* margin-left: 163px; */
                 padding: 20px 38px;
                 height:10px;
                 width: 101px;
-                font-family: 'Montserrat', sans-serif;
                 font-weight: bold;
             }
 
             .imagem {
                 background: url('imagem mulher.png') no-repeat center;
-                background-size:cover;
-                height: 700px;
-                padding:0px;
+                background-size: cover;
+                height: 605px;
+                padding: 0px;
+                margin-top: 95px;
             }
+            
+            .conteudo-imagem {
+                position: relative;
+                max-width: 1200px;
+                margin: auto;
+                height: 700px;
+                display: flex;
+                /* align-items: center; */
+                justify-content: center;
+                flex-direction: column;
+                padding: 10px;
+            }
+
             .imagem h1{
-                padding: 260px 0px 0px 0px;
-                margin-left: 119px;
-                font-family: 'Montserrat', sans-serif;
-                font-weight: bold;
+                /* padding: 260px 0px 0px 0px; */
+                /* margin-left: 119px; */
+                /* font-weight: bold; */
+                font-weight: 400;
                 font-size: 55px;
 
             }
             .imagem h3{
-                padding: 0px 0px 50px 0px;
+                /* padding: 0px 0px 50px 0px; */
+                /* margin-left: 119px; */
+                /* font-weight: bold; */
                 font-size: 15px;
-                margin-left: 119px;
-                font-family: 'Montserrat', sans-serif;
-                font-weight: bold;
-
+                font-weight: 400;
             }
-        
+            
+            @media only screen and (max-width: 360px) {
+                /* .menu {display: none;} */
+                .menu-next{ float: none; width:100%;}
+                nav { display:none; }
+            }
+            
+            @media only screen and (max-width: 360px){
+                /* .imagem {
+                    width: 100%;
+                    padding: 0;
+                } */
+                
+                .logos {
+                    justify-content: space-between;
+                }
+
+                .login{ 
+                    position: fixed;
+                    bottom: 0px;
+                    left: 0px;
+                    width: 100%;
+                    text-align: center;
+                    padding: 20px 0;
+                }
+
+                .imagem {
+                    background-image: url('cover-mobile.webp');
+                    background-position-x: 40px;
+                    background-position-y: 40px;
+                    background-color: #F2F2F2;
+                }
+                
+                .conteudo-imagem {
+                    justify-content: start;
+                }
+
+                .imagem h1, .imagem h3 {
+                    width: 60%;
+                }
+
+                .imagem h1 {
+                    font-size: 28px;
+                }
+            }
         </style> 
+    
+        <!--CSS-->
+
+
     </head>
     <body>
         <header class="menu">
-            <div class="logos">
-                <a class="logo" href="#"><img src="next.png"alt="logo do next"></a>
-            </div>
-            <nav class="menu-next">
-                <ul>
-                    <li><a href="#">CONTA</a></li>
-                    <li><a href="#">TEM NO NEXT</a></li>
-                    <li><a href="#">MIMOS</a></li>
-                    <li><a href="#">SOBRE NÓS</a></li>
-                    <li><a href="#">CARREIRAS</a></li>
-                    <li><a href="#">AJUDA</a></li>
-                    <li><a href="#">WHAT'S NEXT</a></li>
-                    <li><a href="#">NEXTSHOP</a></li>
+            <div class="menu-container">
+                <div class="logos">
+                    <a class="logo" href="#"><img src="next.png"alt="logo do next"></a>
+                    <ul class="sdw-menu"><!-- versão grande -> apresenta lista, -->
+                        <h1 href="#">...</h1>
+                    </ul>
+                    <nav class="menu-next">
+                        <ul>
+                            <li><a href="#">CONTA</a></li>
+                            <li><a href="#">TEM NO NEXT</a></li>
+                            <li><a href="#">MIMOS</a></li>
+                            <li><a href="#">SOBRE NÓS</a></li>
+                            <li><a href="#">CARREIRAS</a></li>
+                            <li><a href="#">AJUDA</a></li>
+                            <li><a href="#">WHAT'S NEXT</a></li>
+                            <li><a href="#">NEXTSHOP</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <ul class="login">
+                    <a href="#"></a>QUERO SER NEXT</a>
                 </ul>
-            </nav>
-            <ul class="login">
-                <a href="#"></a>QUERO SER NEXT</a>
-            </ul>
-
+            </div>
         </header>
 
 <!-- Início da imagem após o topo-->
 
-<section class="imagem">
-    <h1>Quem é next <br> faz acontecer <br> todo dia.</h1>
-    <h3><br>Aqui você faz saques e transferências gratuitos e <br> ilimitados, tem segurança ao investir o seu <br> dinheiro e ainda ganha mimos exclusivos.
-    </h3>
-
-</section>
+        <section class="imagem">
+            <main class="conteudo-imagem">
+                <h1>Quem é next <br> faz acontecer <br> todo dia.</h1>
+                <h3>
+                    <br>Aqui você faz saques e transferências gratuitos e
+                    <br> ilimitados, tem segurança ao investir o seu
+                    <br> dinheiro e ainda ganha mimos exclusivos.
+                </h3>
+            </main>
+        </section>
 
 <!-- Final da imagem após o topo-->
     </body>
