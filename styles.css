@@ -1,0 +1,207 @@
+@font-face {
+    /*font-family: Barrio;
+    src: local(Barrio), url(ModernSans-Light.otf);*/
+    color: black;
+    font-family: Main;
+    src: local(Main), url(Klein-Text-Book-trial.ttf);
+    /*src: local(Fonte), url(Klein-ExtraLight-trial.ttf);
+    
+    Klein-ExtraLight-trial*/
+  }
+  @font-face {
+      color: black;
+      font-family: Fonte;
+      src: local(Fonte), url(Klein-ExtraLight-trial.ttf);
+  }
+ body, h2, h3, p, ul{
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Main';
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1235px;
+    margin: auto;
+    height: 95px;
+    align-items: center;
+}
+
+header .logo{
+    background: none;
+    border: none;
+    width: 90px;
+    margin-right:0px;
+    margin-top:8px;
+    
+}
+
+header .quero-ser-next{
+    width: 178px;
+    height: 53px;
+    background-color:#FD6699;
+    border: none;
+    color: white;
+    font-weight: bold;
+    margin-right:28px;
+    margin-bottom:0px;
+    font-size: 11px;
+    margin-top:13px;
+    margin-left:12px;
+    
+    
+}
+
+
+.mobile {
+    display: none;
+}
+
+.menu-next{
+    display: flex;
+    font-size: 0.575rem;
+    font-weight:bold;
+    
+    
+}
+
+.menu-next{
+    text-decoration: none;
+    list-style: none;
+    padding-right: 100px;
+    
+   
+}
+
+.menu-next li{
+    margin-right: 30px;
+    letter-spacing: 2px;
+    margin-top:11px;
+}
+
+
+main {
+    width: 100%;
+    margin: auto;
+    height: 604px;
+    background-color: #F2F2F2;
+}
+
+.banner{
+    height:650px;
+    display: flex;
+    align-items: center;
+    width: 1200px;
+    margin: auto;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
+.banner .conteudo-imagem{
+    
+    width: 30%;
+    font-size: 16px;
+    color: #010101;
+    margin-bottom:120px;
+   
+    
+
+}
+
+.banner .conteudo-imagem h1{
+    font-size: 53px;
+    margin-bottom: 30px;
+    font-family: 'Fonte';
+    width: 350px;
+    
+}
+
+.banner .conteudo-imagem p{
+    font-weight: bold;
+    margin-bottom: 3px;
+    width: 400px;
+    
+}
+.banner img{
+    width: 55%;
+    margin-left:130px;
+    margin-bottom: 18px;
+}
+
+
+@media (max-width: 500px){
+    .banner .conteudo-imagem h1{
+        width: 200px
+    }
+    .banner .conteudo-imagem p{
+        width: 215px;
+    }
+    .web{
+        display: none;
+    }
+
+    .mobile{
+        display:block;
+    }
+
+    .bars{
+        display: block;
+        width: 20px;
+        background: none;
+        border: none;
+        margin-right: 40px;
+        font-size: 24px;
+    }
+
+    .banner {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .banner .conteudo-imagem{
+        position: absolute;
+        top: 100px;
+        left: 20px;
+        margin-top: 20px;
+    }
+    .banner .conteudo-imagem h1{
+        font-size:32px;
+        
+    }
+
+    .banner .conteudo-imagem p{
+        font-size: 16px;
+    }
+
+    .banner .imagem-mobile{
+        width: 100%;
+    }
+
+    .baixe-app{
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 50px;
+        background-color:#FD6699;
+        border: none;
+        color: white;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+}
+
+@media (max-width: 407px){
+    .banner .conteudo-imagem p{
+        font-size: 14px;
+    }
+
+}
+
+@media (max-width: 382px){
+
+    .banner .conteudo-imagem p{
+        font-size: 12px;
+    }
+}
