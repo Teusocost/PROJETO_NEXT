@@ -7,13 +7,19 @@
     /*src: local(Fonte), url(Klein-ExtraLight-trial.ttf);
     
     Klein-ExtraLight-trial*/
-  }
-  @font-face {
-      color: black;
-      font-family: Fonte;
-      src: local(Fonte), url(Klein-ExtraLight-trial.ttf);
-  }
- body, h2, h3, p, ul{
+}
+
+@font-face {
+    color: black;
+    font-family: Fonte;
+    src: local(Fonte), url(Klein-ExtraLight-trial.ttf);
+}
+
+body,
+h2,
+h3,
+p,
+ul {
     padding: 0px;
     margin: 0px;
     font-family: 'Main';
@@ -29,29 +35,27 @@ header {
     align-items: center;
 }
 
-header .logo{
+header .logo {
     background: none;
     border: none;
     width: 90px;
-    margin-right:0px;
-    margin-top:8px;
-    
+    margin-right: 0px;
+    margin-top: 8px;
+
 }
 
-header .quero-ser-next{
+header .quero-ser-next {
     width: 178px;
     height: 53px;
-    background-color:#FD6699;
+    background-color: #FD6699;
     border: none;
     color: white;
     font-weight: bold;
-    margin-right:28px;
-    margin-bottom:0px;
+    margin-right: 28px;
+    margin-bottom: 0px;
     font-size: 11px;
-    margin-top:13px;
-    margin-left:12px;
-    
-    
+    margin-top: 13px;
+    margin-left: 12px;
 }
 
 
@@ -59,26 +63,26 @@ header .quero-ser-next{
     display: none;
 }
 
-.menu-next{
+.menu-next {
     display: flex;
     font-size: 0.575rem;
-    font-weight:bold;
-    
-    
+    font-weight: bold;
+
+
 }
 
-.menu-next{
+.menu-next {
     text-decoration: none;
     list-style: none;
     padding-right: 100px;
-    
-   
+
+
 }
 
-.menu-next li{
+.menu-next li {
     margin-right: 30px;
     letter-spacing: 2px;
-    margin-top:11px;
+    margin-top: 11px;
 }
 
 
@@ -89,8 +93,8 @@ main {
     background-color: #F2F2F2;
 }
 
-.banner{
-    height:650px;
+.banner {
+    height: 650px;
     display: flex;
     align-items: center;
     width: 1200px;
@@ -99,60 +103,65 @@ main {
     padding-top: 10px;
 }
 
-.banner .conteudo-imagem{
-    
+.banner .conteudo-imagem {
+
     width: 30%;
     font-size: 16px;
     color: #010101;
-    margin-bottom:120px;
-   
-    
+    margin-bottom: 120px;
+
+
 
 }
 
-.banner .conteudo-imagem h1{
+.banner .conteudo-imagem h1 {
     font-size: 53px;
     margin-bottom: 30px;
     font-family: 'Fonte';
     width: 350px;
-    
+
 }
 
-.banner .conteudo-imagem p{
+.banner .conteudo-imagem p {
     font-weight: bold;
     margin-bottom: 3px;
     width: 400px;
-    
+
 }
-.banner img{
+
+.banner img {
     width: 55%;
-    margin-left:130px;
+    margin-left: 130px;
     margin-bottom: 18px;
 }
-.menu-next i{
+
+.menu-next i {
     margin-left: 5px;
 }
 
-@media (max-width: 500px){
-    .banner .conteudo-imagem h1{
+@media (max-width: 500px) {
+    .banner .conteudo-imagem h1 {
         width: 200px;
         font-size: 32px;
     }
-    .banner .conteudo-imagem p{
+
+    .banner .conteudo-imagem p {
         width: 240px;
         font-size: 16px;
         font-weight: 100;
-        line-height:1.5; /*Espaço entre linhas*/
+        line-height: 1.5;
+        /*Espaço entre linhas*/
     }
-    .web{
+
+    .web {
         display: none;
     }
 
-    .mobile{
-        display:block;
+    .mobile {
+        display: block;
     }
 
-    .bars{
+    .bars {
         display: block;
         width: 20px;
         background: none;
@@ -166,7 +175,7 @@ main {
         justify-content: flex-end;
     }
 
-    .banner .conteudo-imagem{
+    .banner .conteudo-imagem {
         position: absolute;
         top: 100px;
         left: 20px;
@@ -174,16 +183,16 @@ main {
     }
 
 
-    .banner .imagem-mobile{
+    .banner .imagem-mobile {
         width: 100%;
     }
 
-    .baixe-app{
+    .baixe-app {
         position: fixed;
         bottom: 0;
         width: 100%;
         height: 50px;
-        background-color:#FD6699;
+        background-color: #FD6699;
         border: none;
         color: white;
         font-weight: bold;
@@ -191,16 +200,86 @@ main {
     }
 }
 
-@media (max-width: 407px){
-    .banner .conteudo-imagem p{
+@media (max-width: 407px) {
+    .banner .conteudo-imagem p {
         font-size: 14px;
     }
 
 }
 
-@media (max-width: 382px){
+@media (max-width: 382px) {
 
-    .banner .conteudo-imagem p{
+    .banner .conteudo-imagem p {
         font-size: 12px;
     }
 }
+
+/*Parte do Login*/
+
+/*#QueroSerNext{
+    cursor: pointer;
+}*/
+.quero-ser-next {
+    display: block;
+}
+
+.Entrar {
+    display: none;
+    background-color: rgba(165, 147, 147, 0.8);
+    position: absolute;
+    top: 15%;
+    left: 70%;
+    /*transform: translate(-50%, -50%);*/
+    padding: 80px;
+    border-radius: 8px;
+    color: white;
+    align-items: center;
+
+
+}
+
+.Entrar.show {
+    display: block;
+}
+
+#Email,
+#Senha {
+    padding: 15px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    border-radius: 8px 8px;
+
+}
+
+#BotaoEntrar {
+    background-color: #FD6699;
+    border: none;
+    padding: 15px;
+    width: 100%;
+    border-radius: 5px 5px;
+    cursor: pointer;
+    position: relative;
+    color: white;
+    font-family: 'Main';
+    font-weight: bold;
+
+}
+
+#BotaoEntrar:hover {
+    background-color: #f778a2;
+}
+
+
+.background {
+    display: block;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    opacity: 70%;
+    background-color: rgb(0, 0, 0);
+}
+
+/*Fim do Login*/
