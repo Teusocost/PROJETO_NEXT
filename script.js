@@ -31,7 +31,6 @@ botao_deslogar.addEventListener("click", function () {
 BotaoNext.addEventListener('click', function () {
     mostrarbotaoacao()
     if (Pegatoken === "QpwL5tke4Pnpja7X4") {
-        console.log('Receba')
         animacao_login_logado.className = "animacao_login show"
         setTimeout(function () { animacao_login_logado.className = "animacao_login close" }, 3000)
         //setTimeout(function(){animacao_login_logado.className="animacao_login"},2000) 
@@ -64,21 +63,18 @@ async function FazLogin() { //funcao p/login
             Pegatoken = token;
             localStorage.token = token;
             if (Pegatoken === 'QpwL5tke4Pnpja7X4') {
-                console.log("opaaaa")
                 SecaoLogin.className = "Entrar"
                 mostrarbotaoacao();
             }
         })
         .catch(function (error) {
             console.error(error);
-            console.log('erradoooo');
             Mensagem_de_Erro2();
         });
 }
 
 function mostrarbotaoacao() {
     if (Pegatoken === 'QpwL5tke4Pnpja7X4') {
-        console.log("opa")
         botao_pesquisar_acao.className = "abrir_busca show"
         css_botao_deslogar.className = "css_sair show "
     }
@@ -95,7 +91,6 @@ function Mensagem_de_Erro() {
                 <p style="color:red;">**Digite mais de 3 caracteres</p>
                 `
     listar_erro.innerHTML = test
-    console.log("testando")
     Email.value = "";
     Senha.value = "";
 }
@@ -110,7 +105,6 @@ function Mensagem_de_Erro2() {
     listar_erro.innerHTML = test
     Email.value = "";
     Senha.value = "";
-    console.log("testando")
 }
 
 botao_abrir_busca.addEventListener("click", function () {
@@ -164,7 +158,6 @@ function mensagem_de_erro() {
                 <p>OBS: Digite um símbolo correto ou verifique se o simbolo que escrever está correto</p>
                 `
     listar_erro.innerHTML = test
-    console.log("to aqui")
     dica.className = ('small') //retorna dica de simbolo
 }
 

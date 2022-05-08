@@ -214,9 +214,6 @@ main {
 
 /*Parte do Login*/
 
-/*#QueroSerNext{
-    cursor: pointer;
-}*/
 .quero-ser-next {
     display: block;
 }
@@ -232,7 +229,6 @@ main {
     border-radius: 8px;
     color: white;
     align-items: center;
-
 
 }
 
