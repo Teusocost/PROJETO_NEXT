@@ -6,9 +6,19 @@ let Senha = document.getElementById('Senha');
 let BotaoEntrar = document.getElementById('BotaoEntrar');
 let animacao_login_logado = document.querySelector('.animacao_login')
 let botao_pesquisar_acao = document.querySelector('#abrir_busca')
-
 let botao_deslogar = document.querySelector('#sair')
 let css_botao_deslogar = document.querySelector('.css_sair')
+var background = document.querySelector('.background')
+var botao_abrir_busca = document.querySelector("#abrir_busca")
+var botao_fechar_busca = document.querySelector("#fechar")
+var listar_erro = document.querySelector('#inf_acao');
+var dica = document.querySelector('small')
+var animacao = document.querySelector('.animacao_procurar')
+var consult = document.querySelector("#symbol");
+let botao_buscar = document.querySelector("#botao_buscar");
+var login_feito = document.querySelector('#BotaoEntrar');
+var login_feito_animacao = document.querySelector('.animacao_login')
+
 mostrarbotaoacao() //já entra conferindo se o token está correto.
 
 botao_deslogar.addEventListener("click", function () {
@@ -17,7 +27,7 @@ botao_deslogar.addEventListener("click", function () {
     mostrarbotaoacao();
 })
 
-
+//Adiciona evento ao botao quero ser next
 BotaoNext.addEventListener('click', function () {
     mostrarbotaoacao()
     if (Pegatoken === "QpwL5tke4Pnpja7X4") {
@@ -30,17 +40,18 @@ BotaoNext.addEventListener('click', function () {
     }
 });
 
+//Adiciona evento ao botao entrar
 BotaoEntrar.addEventListener('click', function () {
-    console.log(Email.value);
-    if (Email.value.length <= 3) {
-        Mensagem_de_Erro()
-    }
-    else {
+        console.log(Email.value);
+        if (Email.value.length <= 3) {
+             Mensagem_de_Erro()
+        }
+        else {
         FazLogin()
-    }
-});
+        }
+    });
 
-async function FazLogin() {
+async function FazLogin() { //funcao p/login
 
     await axios.post('https://reqres.in/api/login', {
         email: Email.value, //eve.holt@reqres.in
@@ -63,7 +74,6 @@ async function FazLogin() {
             console.log('erradoooo');
             Mensagem_de_Erro2();
         });
-
 }
 
 function mostrarbotaoacao() {
@@ -78,6 +88,7 @@ function mostrarbotaoacao() {
     }
 }
 
+// mensagem de erro para verificação dos campos
 function Mensagem_de_Erro() {
     listar_erro = document.querySelector('#LoginErro');
     const test = `
@@ -89,6 +100,7 @@ function Mensagem_de_Erro() {
     Senha.value = "";
 }
 
+// mensagem de erro para verificação dos campos
 function Mensagem_de_Erro2() {
     listar_erro = document.querySelector('#LoginErro');
     const test = `
@@ -101,19 +113,12 @@ function Mensagem_de_Erro2() {
     console.log("testando")
 }
 
-var background = document.querySelector('.background')
-var botao_abrir_busca = document.querySelector("#abrir_busca")
-var botao_fechar_busca = document.querySelector("#fechar")
-var listar_erro = document.querySelector('#inf_acao');
-var dica = document.querySelector('small')
-var animacao = document.querySelector('.animacao_procurar')
-
-
 botao_abrir_busca.addEventListener("click", function () {
     background.className = 'background show';
     botao_abrir_busca.className = 'abrir_busca'
     css_botao_deslogar.className = 'css_sair'
 })
+
 botao_fechar_busca.addEventListener("click", function () {
     background.className = 'background';
     mostrarbotaoacao();
@@ -122,16 +127,6 @@ botao_fechar_busca.addEventListener("click", function () {
     dica.className = 'small'; //volta a dica de simbolo se houver.
 })
 //INICIO JAVASCRPT PESQUISA
-//
-//
-//
-//
-//
-//
-//
-
-var consult = document.querySelector("#symbol");
-let botao_buscar = document.querySelector("#botao_buscar");
 
 botao_buscar.addEventListener("click", async function () {
     let search = consult.value.toUpperCase();
@@ -172,6 +167,7 @@ function mensagem_de_erro() {
     console.log("to aqui")
     dica.className = ('small') //retorna dica de simbolo
 }
+
 function mensagem_informacoes_da_empresa(search, response_json) {
     console.log(response_json.results[search].name)
     lista = document.querySelector('#inf_acao');
@@ -187,8 +183,7 @@ function mensagem_informacoes_da_empresa(search, response_json) {
     lista.innerHTML = test;
 }
 //construindo parte a animação do botão
-var login_feito = document.querySelector('#BotaoEntrar');
-var login_feito_animacao = document.querySelector('.animacao_login')
+
 login_feito.addEventListener("click", function () {
     if (localStorage.value === "colocar token") {
         setTimeout(function () {

@@ -270,23 +270,6 @@ main {
 
 /*INICIO CDD PESQUISA*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 small {
     /*controla a dica de ação*/
     display: block;
@@ -456,5 +439,3 @@ small.block {
 .css_sair.show {
     display: block;
 }
-
-/*Fim do Login*/
