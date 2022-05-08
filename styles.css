@@ -270,9 +270,124 @@ main {
     background-color: #f778a2;
 }
 
+/*INICIO CDD PESQUISA*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+small {
+    /*controla a dica de ação*/
+    display: block;
+}
+
+small.block {
+    display: none;
+}
+
+@keyframes move {
+    from {
+        bottom: 50%;
+    }
+
+    to {
+        bottom: 0%
+    }
+}
+
+@keyframes animacao_login {
+    0% {
+        top: -10%;
+    }
+
+    25% {
+        top: 0%;
+    }
+
+    75% {
+        top: 0%;
+    }
+
+    100% {
+        top: -10%;
+        display: none;
+    }
+}
+
+@keyframes animacao_login_reverse {
+    from {
+        top: 0%;
+    }
+
+    to {
+        top: -10%;
+    }
+}
+
+.animacao_login {
+    display: none;
+    border-radius: 20pt;
+    padding: 5pt 0;
+    text-align: center;
+    padding: 1.5% 0 2%;
+    left: 40%;
+    background-color: #07f85d;
+    color: black;
+    position: absolute;
+    height: 2%;
+    width: 15%;
+}
+
+.animacao_login.show {
+    display: block;
+    animation: animacao_login 3s;
+}
+
+.animacao_login.close {
+    display: none;
+}
+
+#abrir_busca {
+    display: none;
+    background-color: #07f85d;
+    border: none;
+    padding: 15px;
+    width: 100%;
+    border-radius: 5px 5px;
+    cursor: pointer;
+    position: absolute;
+    color: hwb(0 0% 100%);
+    font-family: 'Main';
+    font-weight: bold;
+}
+
+#abrir_busca.show {
+    display: block;
+}
+
+#fechar {
+    position: relative;
+    left: 48%;
+    border-right: 70%;
+    color: rgb(255, 0, 0);
+
+}
 
 .background {
-    display: block;
+    display: none;
     position: absolute;
     top: 0%;
     left: 0%;
@@ -280,6 +395,68 @@ main {
     height: 100%;
     opacity: 70%;
     background-color: rgb(0, 0, 0);
+}
+
+.background.show {
+    display: block;
+}
+
+.JANELA_DE_BUSCA {
+    animation: 0.5s move;
+    text-align: center;
+    display: block;
+    position: relative;
+    background-image: linear-gradient(to top, rgb(0, 255, 238), #ffffff);
+    padding: 1%;
+    margin: 12% 25% 25% 30%;
+    margin-left: 25%;
+    margin-right: 25%;
+    border-radius: 2ch;
+}
+
+@keyframes is-rotating {
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+.local_animacao {
+    padding-left: 50%;
+}
+
+.animacao_procurar {
+    display: none;
+    animation: is-rotating 1s;
+    border-radius: 50%;
+    border: 2px solid rgb(255, 0, 0);
+    border-top-color: #33032b;
+    height: 20px;
+    width: 20px;
+}
+
+.animacao_procurar.show {
+    display: block;
+}
+
+.css_sair {
+    display: none;
+    color: white;
+    background-color: rgb(209, 1, 1);
+    cursor: pointer;
+    box-shadow: 0 0 .5em black;
+    border: 0;
+    padding: 0;
+    text-align: center;
+    height: 4%;
+    width: 2.5%;
+    position: absolute;
+    top: 2%;
+    left: 90%;
+    border-radius: 100%;
+}
+
+.css_sair.show {
+    display: block;
 }
 
 /*Fim do Login*/

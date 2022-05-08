@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 
 <head>
     <!--
@@ -25,62 +25,83 @@
 
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <!--Css external-->
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <div id="background">
-        <div class="Entrar">
-            <h1>Login</h1>
-            <input id="Email" type="text" placeholder="Digite seu E-mail" />
-            <br><br>
-            <input id="Senha" type="password" placeholder="Digite sua senha" />
-            <br><br>
-            <button id="BotaoEntrar">Entrar</button>
-            <div id="LoginErro"></div>
-        </div>
-        <header>
-            <button class="logo" href="#">
-                <img src="logoN.svg" alt="logo do next" />
-            </button>
-            <button class="bars mobile">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-
-            <ul class="menu-next web">
-                <li href="#"><a>CONTA </a><i class="fa-solid fa-angle-down"></i></li>
-                <li href="#"><a>TEM NO NEXT </a><i class="fa-solid fa-angle-down"></i></li>
-                <li href="#"><a>MIMOS</a></li>
-                <li href="#"><a>SOBRE NÓS</a></li>
-                <li href="#"><a>CARREIRAS</a></li>
-                <li href="#"><a>AJUDA </a><i class="fa-solid fa-angle-down"></i></li>
-                <li href="#"><a>WHAT'S NEXT</a></li>
-                <li href="#"><a>NEXTSHOP</a></li>
-            </ul>
-
-            <button id="QueroSerNext" class="quero-ser-next web">QUERO SER NEXT</button>
-
-
-        </header>
-
-        <!-- Início da imagem após o topo-->
-
-        <main>
-
-            <section class="banner">
-                <div class="conteudo-imagem">
-                    <h1>Quem é next faz acontecer todo dia.</h1>
-                    <p>Aqui você faz saques e transferências gratuitos e ilimitados, tem segurança ao investir o seu
-                        dinheiro e ainda ganha mimos exclusivos.</p>
-                </div>
-                <img class="imagem-desktop web" src="imagem_desktop.webp" />
-                <img class="imagem-mobile mobile" src="imagem_mobile.webp" />
-            </section>
-            <button class="baixe-app mobile" href="#"></a>Baixe o aplicativo</button>
-        </main>
-        <script type="text/javascript" src="script.js"></script>
-        <script src="https://unpkg.com/axios@0.27.2/dist/axios.min.js" type="text/javascript"></script>
+    <div class="animacao_login">Você já está logado!</div>
+    <div class="Entrar">
+        <h1>Login</h1>
+        <input id="Email" type="text" placeholder="Digite seu E-mail" />
+        <br><br>
+        <input id="Senha" type="password" placeholder="Digite sua senha" />
+        <br><br>
+        <button id="BotaoEntrar">Entrar</button>
+        <div id="LoginErro"></div>
     </div>
+
+    </div>
+    <div class="background">
+        <div class="JANELA_DE_BUSCA">
+            <i class="fa fa-close" id="fechar"></i>
+            <!--<button id="fechar">fechar</button>-->
+            <h1 class="texto_busque_center">Busque infomações de uma empresa</h1>
+            <p>Digite o símbolo da empresa </p>
+            <input type="text" class="texto_busque_center" id="symbol" maxlength="8" />
+            <button id="botao_buscar">buscar</button>
+            <div id="inf_acao"></div>
+            <p>
+                <small>Ex = petr4 </small>
+            </p>
+            <div class="local_animacao">
+                <div class="animacao_procurar"></div>
+            </div>
+        </div>
+    </div>
+    <header>
+        <button class="logo" href="#">
+            <img src="logoN.svg" alt="logo do next" />
+        </button>
+        <button class="bars mobile">
+            <li class="w3-large"><i class="fa fa-home"></i> Home</li>
+        </button>
+
+        <ul class="menu-next web">
+            <li href="#"><a>CONTA </a><i class="fa-solid fa-angle-down"></i></li>
+            <li href="#"><a>TEM NO NEXT </a><i class="fa-solid fa-angle-down"></i></li>
+            <li href="#"><a>MIMOS</a></li>
+            <li href="#"><a>SOBRE NÓS</a></li>
+            <li href="#"><a>CARREIRAS</a></li>
+            <li href="#"><a>AJUDA </a><i class="fa-solid fa-angle-down"></i></li>
+            <li href="#"><a>WHAT'S NEXT</a></li>
+            <li href="#"><a>NEXTSHOP</a></li>
+        </ul>
+        <button id="sair" class="css_sair">OFF</button>
+        <!--botão deslogar-->
+        <button id="QueroSerNext" class="quero-ser-next web">QUERO SER NEXT</button>
+
+    </header>
+
+
+    <!-- Início da imagem após o topo-->
+
+    <main>
+
+        <section class="banner">
+            <div class="conteudo-imagem">
+                <h1>Quem é next faz acontecer todo dia.</h1>
+                <p>Aqui você faz saques e transferências gratuitos e ilimitados, tem segurança ao investir o seu
+                    dinheiro e ainda ganha mimos exclusivos.</p>
+            </div>
+            <img class="imagem-desktop web" src="imagem_desktop.webp" />
+            <img class="imagem-mobile mobile" src="imagem_mobile.webp" />
+
+        </section>
+        <button class="baixe-app mobile" href="#"></a>Baixe o aplicativo</button>
+    </main>
+    <button id="abrir_busca">Clique em mim</button>
+    <script type="text/javascript" src="script.js"></script>
+    <script src="https://unpkg.com/axios@0.27.2/dist/axios.min.js" type="text/javascript"></script>
     <!-- Final da imagem após o topo-->
 </body>
 
