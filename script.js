@@ -54,8 +54,8 @@ async function FazLogin() {
             localStorage.token = token;
             if (Pegatoken === 'QpwL5tke4Pnpja7X4') {
                 console.log("opaaaa")
-                SecaoLogin.className = "Entrar" 
-                mostrarbotaoacao();   
+                SecaoLogin.className = "Entrar"
+                mostrarbotaoacao();
             }
         })
         .catch(function (error) {
@@ -81,8 +81,7 @@ function mostrarbotaoacao() {
 function Mensagem_de_Erro() {
     listar_erro = document.querySelector('#LoginErro');
     const test = `
-                <p style="color:red;">**Digite mais de três caracteres</p>
-                <p></p>
+                <p style="color:red;">**Digite mais de 3 caracteres</p>
                 `
     listar_erro.innerHTML = test
     console.log("testando")

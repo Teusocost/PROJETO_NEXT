@@ -14,11 +14,10 @@
     font-family: Fonte;
     src: local(Fonte), url(Klein-ExtraLight-trial.ttf);
 }
-
+p,li{font-family: Arial;}
 body,
 h2,
 h3,
-p,
 ul {
     padding: 0px;
     margin: 0px;
@@ -41,7 +40,6 @@ header .logo {
     width: 90px;
     margin-right: 0px;
     margin-top: 8px;
-
 }
 
 header .quero-ser-next {
