@@ -42,7 +42,7 @@ BotaoNext.addEventListener('click', function () {
 //Adiciona evento ao botao entrar
 BotaoEntrar.addEventListener('click', function () {
         console.log(Email.value);
-        if (Email.value.length <= 3) {
+        if (Email.value.length <= 3 || Senha.value.length <=3) {
              Mensagem_de_Erro()
         }
         else {
@@ -88,11 +88,9 @@ function mostrarbotaoacao() {
 function Mensagem_de_Erro() {
     listar_erro = document.querySelector('#LoginErro');
     const test = `
-                <p style="color:red;">**Digite mais de 3 caracteres</p>
+                <p style="color:red;">**Digite mais de 3 caracteres para Email e Senha!!</p>
                 `
     listar_erro.innerHTML = test
-    Email.value = "";
-    Senha.value = "";
 }
 
 // mensagem de erro para verificação dos campos
