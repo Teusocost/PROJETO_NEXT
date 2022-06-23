@@ -6,8 +6,7 @@ const Auth = {
 
         const token = jwt.sign({
             email: email,
-            password: pass,
-            feature: [1,2,3]
+            password: pass
         }, secret)
 
         return token
