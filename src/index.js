@@ -20,6 +20,8 @@ const app = express()
 app.use(express.json())
 
 // Routes
+app.get('/', (req, res) => res.send('Hello world'))
+
 app.post('/api/login', UserController.login)
 app.post('/api/users', UserController.register)
 app.post('/api/posts', jwt_middleware(JWT_CONFIG), PostController.createPost)
