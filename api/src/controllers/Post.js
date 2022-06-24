@@ -20,6 +20,8 @@ const Post = {
 
     async readPosts(req, res) {
         const { symbol } = req.query
+
+        res.status(400).json({ code: 400 })
     }
 }
 
