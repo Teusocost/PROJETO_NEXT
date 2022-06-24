@@ -19,7 +19,7 @@ let botao_buscar = document.querySelector("#botao_buscar");
 var login_feito = document.querySelector('#BotaoEntrar');
 var login_feito_animacao = document.querySelector('.animacao_login')
 
-const API_URL = ''
+const API_URL = "https://projeto3-api.herokuapp.com"
 
 mostrarbotaoacao() //já entra conferindo se o token está correto.
 
@@ -54,7 +54,7 @@ BotaoEntrar.addEventListener('click', function () {
 
 async function FazLogin() { //funcao p/login
 
-    await axios.post('https://reqres.in/api/login', {
+    await axios.post(`${API_URL}/api/login`, {
         email: Email.value, //eve.holt@reqres.in
         password: Senha.value //cityslicka
     })
