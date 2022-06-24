@@ -23,15 +23,15 @@ const User = {
         const { email, password, name } = req.body
 
         if(email && password && name) {
-            const user = await UserModel.find({ email: email, name: name })
+            const user = await UserModel.find({ email: email })
 
             if(user.length > 0) {
-                return res.status(400).json({ code: 400, message: 'Este usuário já existe na base de dados' })
+                return res.status(400).json({ code: 400, message: 'Esse e-mail já está em uso' })
             }
             
             await UserModel.create({ email, password, name })
 
-            res.status(200).json({ code: 200, message: "Usuário criado com sucesso" })
+            res.status(201).json({ code: 201, message: "Usuário cadastrado com sucesso" })
             return 
         }
 
