@@ -19,6 +19,8 @@ let botao_buscar = document.querySelector("#botao_buscar");
 var login_feito = document.querySelector('#BotaoEntrar');
 var login_feito_animacao = document.querySelector('.animacao_login')
 
+const API_URL = ''
+
 mostrarbotaoacao() //já entra conferindo se o token está correto.
 
 botao_deslogar.addEventListener("click", function () {
