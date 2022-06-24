@@ -30,7 +30,8 @@ const port = process.env.PORT || 4100
 app.listen(port, () => console.log('> The server is running on port: ' + port + '\n'))
 
 // Connect to the database
-mongoose.connect(process.env.MONGODB_URI || db.uri).then(() => {
+console.log(db.uri)
+mongoose.connect(db.uri).then(() => {
     console.log("> Succesfully connected to the database")
 }).catch((err) => {
     console.log("Have an error to connect to the database: " + err)
