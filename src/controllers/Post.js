@@ -2,10 +2,10 @@ const PostModel = require('../models/Post')
 
 const Post = {
     async createPost(req, res) {
-        const { name, company_name, description, currency, price, userId } = req.body
+        const { name, company_name, description, currency, price, website, userId } = req.body
         let { symbol } = req.body
 
-        if (name && company_name && description && symbol && currency && price && userId) {
+        if (name && company_name && description && symbol && currency && price && website && userId) {
             symbol = symbol.toUpperCase()
             const post = await PostModel.find({ symbol: symbol })
 
@@ -13,7 +13,7 @@ const Post = {
                 return res.status(400).json({ code: 400, message: 'Já existe uma ação cadastrada com esse símbolo' })
             }
 
-            await PostModel.create({ name, company_name, description, symbol, currency, price, userId })
+            await PostModel.create({ name, company_name, description, symbol, currency, price, website, userId })
             return res.status(201).json({ code: 201, message: 'Ação cadastrada com sucesso!' })
         }
 
