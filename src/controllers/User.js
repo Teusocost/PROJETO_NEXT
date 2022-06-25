@@ -26,16 +26,16 @@ const User = {
             const user = await UserModel.find({ email: email })
 
             if(user.length > 0) {
-                return res.status(400).json({ code: 400, message: 'Esse e-mail já está em uso' })
+                return res.status(200).json({ code: 200, status: false, message: 'Esse e-mail já está em uso' })
             }
             
             await UserModel.create({ email, password, name })
 
-            res.status(201).json({ code: 201, message: "Usuário cadastrado com sucesso" })
+            res.status(201).json({ code: 201, status: true, message: "Usuário cadastrado com sucesso" })
             return 
         }
 
-        res.status(400).send({ code: 400, message: "Estão faltando dados obrigatórios, preencha e tente novamente" })
+        res.status(400).send({ code: 400, status: false, message: "Estão faltando dados obrigatórios, preencha e tente novamente" })
     }
 }
 
