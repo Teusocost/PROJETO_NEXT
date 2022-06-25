@@ -35,7 +35,7 @@ const User = {
             return 
         }
 
-        res.status(400).send({ code: 400, status: false, message: "Estão faltando dados obrigatórios, preencha e tente novamente" })
+        res.status(200).send({ code: 200, status: false, message: "Estão faltando dados obrigatórios, preencha e tente novamente" })
     }
 }
 
