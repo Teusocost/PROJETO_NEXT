@@ -7,8 +7,10 @@ const User = {
 
         if(email && password) {
             const searchedUser = await UserModel.find({ email: email, password: password })
+
             if(searchedUser.length === 1) {
-                const token = createAuth(email, password)
+                const token = createAuth(email, password, searchedUser[0]._id)
+
                 res.status(200).json({ code: 200, message: "Usuário autenticado com sucesso", token })
                 return
             } else {
@@ -16,7 +18,7 @@ const User = {
             }
         }
 
-        res.status(400).send({ code: 400, message: "Os campos de email e senha são obrigatórios, preencha e tente novamente" })
+        res.status(200).send({ code: 200, message: "Os campos de email e senha são obrigatórios, preencha e tente novamente" })
     },
 
     async register(req, res) {
@@ -32,7 +34,7 @@ const User = {
             await UserModel.create({ email, password, name })
 
             res.status(201).json({ code: 201, status: true, message: "Usuário cadastrado com sucesso" })
-            return 
+            return
         }
 
         res.status(200).send({ code: 200, status: false, message: "Estão faltando dados obrigatórios, preencha e tente novamente" })
