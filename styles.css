@@ -236,14 +236,18 @@ main {
     display: block;
 }
 
-#Email,
-#Senha {
+.form-inputs {
     padding: 15px;
     border: none;
     outline: none;
     font-size: 18px;
     border-radius: 8px 8px;
+    margin-bottom: 16px;
+    display: block;
+}
 
+#Nome {
+    display: none;
 }
 
 #BotaoEntrar {
@@ -257,7 +261,42 @@ main {
     color: white;
     font-family: 'Main';
     font-weight: bold;
+    transition: .2s;
+}
 
+#BotaoEntrarOutline, #BotaoRegistrarOutline {
+    border: none;
+    padding: 15px;
+    width: 100%;
+    border-radius: 5px 5px;
+    cursor: pointer;
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+#BotaoRegistrar {
+    background-color: #292929;
+    margin-top: 8px;
+    border: none;
+    padding: 15px;
+    width: 100%;
+    border-radius: 5px 5px;
+    cursor: pointer;
+    position: relative;
+    color: white;
+    font-family: 'Main';
+    font-weight: bold;
+    transition: .2s;
+}
+
+#div-botoes-registrar {
+    display: none;
+}
+
+#BotaoRegistrar:hover {
+    background-color: #3f3f3f;
 }
 
 #BotaoEntrar:hover {
@@ -434,4 +473,32 @@ small.block {
 
 .css_sair.show {
     display: block;
+}
+
+#criar-acao {
+    display: none;
+}
+
+#buscar-acao {
+    display: block;
+}
+
+.input-form-acao {
+    display: block;
+    width: 80%;
+    margin: 8px auto;
+    padding: 8px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+}
+
+#BotaoCriarAcao {
+    padding: 8px;
+    border: none;
+    background-color: #000000;
+    color: white;
+    border-radius: 3px;
+    width: 50%;
 }

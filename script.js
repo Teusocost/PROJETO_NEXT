@@ -4,6 +4,9 @@ let Pegatoken = localStorage.token;
 let Email = document.getElementById('Email');
 let Senha = document.getElementById('Senha');
 let BotaoEntrar = document.getElementById('BotaoEntrar');
+let BotaoEntrarOutline = document.getElementById('BotaoEntrarOutline');
+let BotaoRegistrar = document.getElementById('BotaoRegistrar');
+let BotaoRegistrarOutline = document.getElementById('BotaoRegistrarOutline');
 let animacao_login_logado = document.querySelector('.animacao_login')
 let botao_pesquisar_acao = document.querySelector('#abrir_busca')
 let botao_deslogar = document.querySelector('#sair')
@@ -18,8 +21,15 @@ var consult = document.querySelector("#symbol");
 let botao_buscar = document.querySelector("#botao_buscar");
 var login_feito = document.querySelector('#BotaoEntrar');
 var login_feito_animacao = document.querySelector('.animacao_login')
+const divBotoesRegistrar = document.querySelector('#div-botoes-registrar')
+const divBotoesEntrar = document.querySelector('#div-botoes-entrar')
+const inputName = document.querySelector('#Nome')
+const titleLoginRegister = document.querySelector('#title-login-register')
+const divBuscarAcao = document.querySelector('#buscar-acao')
+const divCriarAcao = document.querySelector('#criar-acao')
 
-const API_URL = "https://projeto3-api.herokuapp.com"
+const API_URL = "https://projeto3-api.herokuapp.com/api"
+// const API_URL = "http://localhost:4100/api"
 
 mostrarbotaoacao() //já entra conferindo se o token está correto.
 
@@ -43,40 +53,77 @@ BotaoNext.addEventListener('click', function () {
 
 //Adiciona evento ao botao entrar
 BotaoEntrar.addEventListener('click', function () {
-        console.log(Email.value);
-        if (Email.value.length <= 3 || Senha.value.length <=3) {
-             Mensagem_de_Erro()
-        }
-        else {
+    if (Email.value.length <= 3 || Senha.value.length <=3) {
+        Mensagem_de_Erro()
+    }
+    else {
         FazLogin()
-        }
-    });
+    }
+});
+
+BotaoEntrarOutline.addEventListener('click', function() {
+    divBotoesRegistrar.style.display = 'none'
+    divBotoesEntrar.style.display = 'block'
+    titleLoginRegister.textContent = 'Login'
+    inputName.style.display = 'none'
+})
+
+//Adiciona evento ao botao de registrar
+BotaoRegistrar.addEventListener('click', function () {
+    if (Email.value.length <= 3 || Senha.value.length <=3) {
+        Mensagem_de_Erro()
+    }
+    else {
+        RegistraUsuario()
+    }
+})
+
+BotaoRegistrarOutline.addEventListener('click', function() {
+    divBotoesRegistrar.style.display = 'block'
+    divBotoesEntrar.style.display = 'none'
+    titleLoginRegister.textContent = 'Registrar'
+    inputName.style.display = 'block'
+})
 
 async function FazLogin() { //funcao p/login
 
-    await axios.post(`${API_URL}/api/login`, {
+    await axios.post(`${API_URL}/login`, {
         email: Email.value, //eve.holt@reqres.in
         password: Senha.value //cityslicka
     })
         .then(function (response) {
-            console.log(response);
             token = response.data.token;
-            console.log(token);
             Pegatoken = token;
             localStorage.token = token;
-            if (Pegatoken === 'QpwL5tke4Pnpja7X4') {
-                SecaoLogin.className = "Entrar"
-                mostrarbotaoacao();
-            }
+            SecaoLogin.className = "Entrar"
+            mostrarbotaoacao();
         })
         .catch(function (error) {
-            console.error(error);
             Mensagem_de_Erro2();
         });
 }
 
+// Função para registrar um novo usuário
+async function RegistraUsuario() {
+    const { data } = await axios.post(`${API_URL}/users`, {
+        email: Email.value,
+        password: Senha.value,
+        name: Nome.value
+    })
+
+    if(data.status) {
+        divBotoesRegistrar.style.display = 'none'
+        divBotoesEntrar.style.display = 'block'
+        titleLoginRegister.textContent = 'Login'
+        inputName.style.display = 'none'
+        return Esconder_Mensagem_de_Erro()
+    }
+    
+    Mensagem_de_Erro_Registro(data.message)
+}
+
 function mostrarbotaoacao() {
-    if (Pegatoken === 'QpwL5tke4Pnpja7X4') {
+    if (localStorage.getItem('token') !== 'null') {
         botao_pesquisar_acao.className = "abrir_busca show"
         css_botao_deslogar.className = "css_sair show "
     }
@@ -98,13 +145,34 @@ function Mensagem_de_Erro() {
 // mensagem de erro para verificação dos campos
 function Mensagem_de_Erro2() {
     listar_erro = document.querySelector('#LoginErro');
-    const test = `
+    const mensagem = `
                 <p style="color:red;">E-mail ou Senha Incorretos</p>
                 <p>Tente Novamente </p>
                 `
-    listar_erro.innerHTML = test
+    listar_erro.innerHTML = mensagem
     Email.value = "";
     Senha.value = "";
+}
+
+function Mensagem_de_Erro_Registro(mensagem) {
+    listar_erro = document.querySelector('#LoginErro');
+
+    const erro = `
+        <p style="color:red;">${mensagem}</p>
+        <p>Tente Novamente </p>
+    `
+
+    listar_erro.innerHTML = erro
+
+    Email.value = "";
+    Senha.value = "";
+    Nome.value = "";
+}
+
+function Esconder_Mensagem_de_Erro() {
+    listar_erro = document.querySelector('#LoginErro');
+
+    listar_erro.innerHTML = ""
 }
 
 botao_abrir_busca.addEventListener("click", function () {
@@ -134,11 +202,13 @@ botao_buscar.addEventListener("click", async function () {
     const options = {
         method: 'GET',
         mode: 'cors',
-        // cache: 'default'
+        headers: {
+            Authorization: 'Bearer ' + localStorage.token
+        }
     }
-    const response = await fetch(`https://api.hgbrasil.com/finance/stock_price?format=json-cors&key=cf47a356&symbol=${search}`, options) // mmethod GET is defalt
+    const response = await fetch(`${API_URL}/posts?symbol=${search}`, options) // method GET is default
     const response_json = await response.json()
-    console.log(response_json)
+
     //procurar toUpperCase
     if (search.length < 5) {
         mensagem_de_erro();
@@ -185,3 +255,43 @@ login_feito.addEventListener("click", function () {
         animacao_login.className = "animacao_login reverse"
     }
 })
+
+function mostrarFormularioNovaAcao() {
+    divBuscarAcao.style.display = "none"
+    divCriarAcao.style.display = "block"
+}
+
+function esconderFormularioNovaAcao() {
+    divBuscarAcao.style.display = "block"
+    divCriarAcao.style.display = "none"
+}
+
+async function criarAcao() {
+    const name = document.querySelector('#NomeEmpresa').value
+    const company_name = document.querySelector('#NomeCompletoEmpresa').value
+    const description = document.querySelector('#DescricaoEmpresa').value
+    const symbol = document.querySelector('#SimboloAcao').value
+    const currency = document.querySelector('#Moeda').value
+    const price = document.querySelector('#PrecoAcao').value
+    const website = document.querySelector('#Website').value
+
+    const { data } = await axios.post(`${API_URL}/posts`, 
+        {
+            name,
+            company_name,
+            description,
+            symbol,
+            currency,
+            price,
+            website
+        },
+        { headers: { Authorization: `Bearer ${localStorage.token}` } }
+    )
+
+    if(data.status) esconderFormularioNovaAcao()
+    else Mensagem_de_Error_Criar_Acao(data.message)
+}
+
+function Mensagem_de_Error_Criar_Acao(message) {
+    document.querySelector('#erro-criar-acao').innerHTML = message
+}
