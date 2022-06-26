@@ -26,6 +26,10 @@ const PostSchema = new mongoose.Schema({
         type: Number,
         require: true
     },
+    website: {
+        type: String,
+        require: true
+    },
     userId: {
         type: String,
         require: true

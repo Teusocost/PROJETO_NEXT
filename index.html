@@ -31,12 +31,22 @@
 <body>
     <div class="animacao_login">Você já está logado!</div>
     <div class="Entrar">
-        <h1>Login</h1>
-        <input id="Email" type="text" placeholder="Digite seu E-mail" />
-        <br><br>
-        <input id="Senha" type="password" placeholder="Digite sua senha" />
-        <br><br>
-        <button id="BotaoEntrar">Entrar</button>
+        <h1 id="title-login-register">Login</h1>
+
+        <input id="Nome" class="form-inputs" type="text" placeholder="Digite seu nome">
+        <input id="Email" class="form-inputs" type="text" placeholder="Digite seu E-mail" />
+        <input id="Senha" class="form-inputs" type="password" placeholder="Digite sua senha" />
+
+        <div id="div-botoes-entrar">
+            <button id="BotaoEntrar">Entrar</button>
+            <button id="BotaoRegistrarOutline">Registrar</button>
+        </div>
+
+        <div id="div-botoes-registrar">
+            <button id="BotaoRegistrar">Registrar</button>
+            <button id="BotaoEntrarOutline">Entrar</button>
+        </div>
+
         <div id="LoginErro"></div>
     </div>
 
@@ -46,13 +56,33 @@
             <i class="fa fa-close" id="fechar"></i>
             <!--<button id="fechar">fechar</button>-->
             <h1 class="texto_busque_center">Busque infomações de uma empresa</h1>
-            <p>Digite o símbolo da empresa </p>
-            <input type="text" class="texto_busque_center" id="symbol" maxlength="8" />
-            <button id="botao_buscar">buscar</button>
-            <div id="inf_acao"></div>
-            <p>
-                <small>Ex = petr4 </small>
-            </p>
+
+            <div id="buscar-acao">
+                <p>Digite o símbolo da empresa </p>
+                <input type="text" class="texto_busque_center" id="symbol" maxlength="8" />
+                <button id="botao_buscar">buscar</button>
+                <div id="inf_acao"></div>
+                <p>
+                    <small>Ex = petr4 </small>
+                </p>
+                <p><button onclick="mostrarFormularioNovaAcao()">Cadastrar nova ação</button></p>
+            </div>
+
+            <div id="criar-acao">
+                <input type="text" id="NomeEmpresa" placeholder="Nome principal da empresa" class="input-form-acao">
+                <input type="text" id="NomeCompletoEmpresa" placeholder="Nome completo da empresa" class="input-form-acao">
+                <input type="text" id="DescricaoEmpresa" placeholder="Descrição da empresa" class="input-form-acao">
+                <input type="text" id="SimboloAcao" placeholder="Símbolo da ação" class="input-form-acao">
+                <input type="text" id="Moeda" placeholder="Sigla da moeda referente ao preço" class="input-form-acao">
+                <input type="number" id="PrecoAcao" placeholder="Preço da ação referente ao dinheiro inserido" class="input-form-acao">
+                <input type="text" id="Website" placeholder="Link da ação" class="input-form-acao">
+
+                <button id="BotaoCriarAcao" onclick="criarAcao()">Criar</button>
+
+                <p id="erro-criar-acao" style="color: red"></p>
+            </div>
+
+            
             <div class="local_animacao">
                 <div class="animacao_procurar"></div>
             </div>
